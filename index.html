@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script language='JavaScript' src='https://code.jquery.com/jquery-latest.min.js'></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="css/domain.css"/>
+	</head>
+
+	<body style='padding:25px;'>
+		<div class="container">
+			<form id='demo-form'>
+				<h4>保存你的账户信息</h4>
+				<div class='row '>
+					<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label id='demo-key-label' for='accon'>账户名称: <b>*</b></label>
+						<input type='text' id='accon' class='form-control' />
+					</div>
+					<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label id='demo-key-label' for='demo-key'>api: <b>*</b></label>
+						<input type='text' id='demo-key' class='form-control' />
+					</div>
+					<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label id='demo-password-label' for='demo-password'>密匙: <b>*</b></label>
+						<input type='password' id='demo-password' class='form-control' /><br />
+					</div>
+					<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label id='demo-password-label' for='demo-password'>请求次数: <b>*</b></label>
+						<input type='number' id='interval' class='form-control' /><br />
+					</div>
+					<div class='form-group'>
+						<input type='button' id='accon-add' value='保存' class='btn btn-default bg-info text-white' /><br />
+					</div>
+				</div>
+				<div class='row'>
+					<div class='form-group col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label for='demo-name'>域名: <b>*</b></label>
+						<input type='text' id='demo-name' name='name' class='form-control' />
+					</div>
+					<div class='form-group col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label for='demo-name'>开始时间: <b>*</b></label>
+						<input type='text' id='start-date' name='start-date' class='form-control' />
+					</div>
+					<div class='form-group col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label for='demo-name'>结束时间: <b>*</b></label>
+						<input type='text' id='end-date' name='end-date' class='form-control' />
+					</div>
+					<div class='form-group col-xs-12 col-sm-6 col-md-4 col-lg-3'>
+						<label for='demo-name'>平台: <b>*</b></label>
+						<select name="platform" id='platforms' name='end-date' class='form-control' />
+						<!--<option value="pl1">pl1</option>
+							<option value="pl2">pl2</option>-->
+						</select>
+					</div>
+					<div class='form-group'>
+						<input type='button' id='domain-add' value='保存' class='btn btn-default bg-info text-white' /><br />
+					</div>
+				</div>
+
+			</form>
+			<div class="domain-list">
+				<table class="table  text-center" border="1" cellspacing="" cellpadding="">
+					<thead class="thead-dark">
+						<tr>
+							<th>ID</th>
+							<th>域名</th>
+							<th>平台</th>
+							<th>开始时间</th>
+							<th>结束时间</th>
+							<th>编辑</th>
+							<th>删除</th>
+						</tr>
+					</thead>
+					<tbody id='d-list'>
+					</tbody>
+				</table>
+			</div>
+			<h2>请求日志</h2>
+			<ul class="mes b-line1 list-group list-group-flush"  data-spy="scroll" >
+
+			</ul>
+		</div>
+		<!--
+		1.保存账户信息    先将账户的信息存贮起来，等待调用(在调用的时候直接通过的账户名称进行调用) 
+		  账户信息单独放进一个localstorage项目里边   一个对象对应一个账户
+		 每个账户有key,value,请求次数等信息
+		2.保存域名信息   保存域名，抢注的时间、
+		  1>添加域名名称
+		  2>域名开始的时间，结束的时间
+		3.同时请求(需要用到原型编程); 
+		域名的抢注时间到了，开启定时器。结束的时候清除定时器		
+	-->
+		<script src="js/domain.js"></script>
+
+	</body>
+
+</html>
